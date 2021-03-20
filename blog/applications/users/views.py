@@ -25,7 +25,7 @@ from .models import User
 
 
 class UserRegisterView(FormView):
-    template_name = 'users/register.html'
+    template_name = 'plantillas/register.html'
     form_class = UserRegisterForm
     success_url = reverse_lazy('users_app:user-login')
 
@@ -45,7 +45,7 @@ class UserRegisterView(FormView):
 
 
 class LoginUser(FormView):
-    template_name = 'users/login.html'
+    template_name = 'plantillas/login.html'
     form_class = LoginForm
     success_url = reverse_lazy('home_app:home-user')
 
@@ -70,7 +70,7 @@ class LogoutView(View):
 
 
 class UpdatePasswordView(LoginRequiredMixin, FormView):
-    template_name = 'users/update.html'
+    template_name = 'plantillas/update.html'
     form_class = UpdatePasswordForm
     success_url = reverse_lazy('users_app:user-login')
     login_url = reverse_lazy('users_app:user-login')
