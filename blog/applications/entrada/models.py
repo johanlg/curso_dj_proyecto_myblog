@@ -1,8 +1,13 @@
 from django.db   import models
 from django.conf import settings
 
+# apps de terceros
 from model_utils.models import TimeStampedModel
 from ckeditor_uploader.fields import RichTextUploadingField
+
+# managers
+from .managers import EntryManager
+
 # Create your models here.
 
 class Category(TimeStampedModel):
@@ -40,6 +45,8 @@ class Entry(TimeStampedModel):
     portada  = models.BooleanField(default=False)
     in_home  = models.BooleanField(default=False)
     slug     = models.SlugField(editable=False, max_length=300)
+
+    objects = EntryManager()
 
     class Meta:
         verbose_name        = 'Entrada'
